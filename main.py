@@ -6,6 +6,7 @@ if __name__ == '__main__':
 
         #Route
         config.add_route('home', '/')
+        config.add_route('chatai', '/chatai')
 
         config.include('views')
         config.scan()
