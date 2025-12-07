@@ -1,11 +1,9 @@
 from waitress import serve
 from pyramid.config import Configurator
-from sqlalchemy import create_engine
 import hupper
 
 
 def main():
-    engine = create_engine("sqlite://", echo=True)
     with Configurator() as config:
         # Route
         config.add_route("home", "/api")
