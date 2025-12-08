@@ -1,0 +1,7 @@
+saya mau seluruh naming convention di project saya itu untuk file kecil semua, lalu saya ingin kamu update lagi ui/ux nya supaya memiliki flow yang mudah dipahami user dan memilik tampilan yang lebih rapih konsisten dan sesuai dengan real case pada studi kasus asli travel booking, dan pastikan semua tombol atau apapun itu fungsional walau datanya masih mock, bisa? gunakan sooner rich color untuk toaster, pastikan lagi semua menggunakan komponen shadcn ui dan terapkan dengan best practice lalu style guidenya itu gunakan padding/gap yang tidak terlalu jauh supaya pengguna bisa mudah mencerna informasinya, dan saya mau navbar itu transparent diawal tapi saat di scroll baru sticky float berbackground putih glassy,
+
+pastikan semua tulisannya readable, gunakan seluruh warna variabel yang ditetapkan di index.css supaya konsisten, untuk warna, jangan gunakan custom warna sendiri di seluruh tampilan frontend saya pastikan semuanya terintegrasi di index.css hindari warna biru yang kurang oke, pakai warna primary yang ada di index
+
+sekali lagi jangan pakai custom warna hardcoded di pemakaian komponen
+
+bisa? buat ke beberapa phase dan selesaikan semuanya

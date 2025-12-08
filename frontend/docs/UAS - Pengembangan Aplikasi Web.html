@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://kuliah.mhabibalgifari.site/pengembangan-aplikasi-web/uas.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAS - Pengembangan Aplikasi Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            padding: 20px;
+            color: #000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(52, 152, 219, 0.4);
+            border: 3px solid #3498db;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #2c3e50;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        header p {
+            color: white;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 6px solid #3498db;
+            background: linear-gradient(90deg, #e8f4f8 0%, #FFFFFF 100%);
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d6eaf8 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid #3498db;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #2c3e50;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .deadline-box {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: 4px solid #8B0000;
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #1e8449;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #3498db;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #e0e0e0;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8fbfd;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #FFFFFF;
+        }
+
+        tbody tr:hover {
+            background: #d6eaf8;
+            transition: background 0.3s ease;
+        }
+
+        .cpmk-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #3498db;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border: 2px solid #3498db;
+        }
+
+        ul, ol {
+            margin-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li:before {
+            content: "✓ ";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 8px;
+            background: #2c3e50;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        code, .code-text {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: #000;
+            border: 1px solid #3498db;
+            font-size: 0.95em;
+        }
+
+        pre code {
+            display: block;
+            padding: 15px;
+            background: #2c3e50;
+            color: #3498db;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .case-box {
+            background: linear-gradient(135deg, #f8fbfd 0%, #e8f4f8 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 3px solid #3498db;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .case-box h4 {
+            color: white;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            border: 2px solid #2c3e50;
+        }
+
+        .tech-stack {
+            background: #e8f5e9;
+            padding: 10px 15px;
+            margin-top: 12px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            border-left: 4px solid #27ae60;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .ai-required {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            padding: 10px 15px;
+            margin-top: 12px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            font-weight: 600;
+            border: 2px solid #6c3483;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 3px solid #3498db;
+            text-align: center;
+            color: #666;
+        }
+
+        .highlight {
+            background: #3498db;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .submit-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin: 20px 10px;
+            border: 3px solid #2c3e50;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #2c3e50;
+            color: #3498db;
+            transform: scale(1.05);
+        }
+
+        .email-button {
+            display: inline-block;
+            background: #2c3e50;
+            color: #3498db;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 10px;
+            border: 3px solid #3498db;
+            transition: all 0.3s;
+        }
+
+        .email-button:hover {
+            background: #3498db;
+            color: white;
+            border-color: #2c3e50;
+            transform: scale(1.05);
+        }
+
+        .motivation-box {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #3498db;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: bold;
+            border: 4px solid #3498db;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .nim-example {
+            font-size: 1.3em;
+            background: #3498db;
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #2c3e50;
+        }
+
+        .team-size {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 3px solid #d35400;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        .logo-position {
+            width: 210px;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .logo-size {
+            height: 50px;
+        }
+
+        .logo-bg-white {
+            background-color: white;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin: 2px;
+        }
+
+        .subdomain-box {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 3px solid #d35400;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-position">
+                <img src="./UAS - Pengembangan Aplikasi Web_files/kemdiktisaintek.png" alt="Logo kemdiktisaintek" class="logo-size">
+                <img src="./UAS - Pengembangan Aplikasi Web_files/magang-berdampak.png" alt="Logo Magang Berdampak" class="logo-size">
+                <img src="./UAS - Pengembangan Aplikasi Web_files/itera.png" alt="Logo ITERA" class="logo-size logo-bg-white">
+            </div>
+            <h1>UJIAN AKHIR SEMESTER</h1>
+            <p>IF25-22014 - Pengembangan Aplikasi Web</p>
+            <p>Full-Stack Group Project - Take Home</p>
+            <p><strong>Waktu:</strong> 3 Minggu</p>
+        </header>
+
+        <section class="team-size">
+            <p>👥 PROYEK KELOMPOK 👥</p>
+            <p style="font-size: 1.2em; margin: 10px 0;">5 Orang per Tim</p>
+        </section>
+
+        <section class="deadline-box">
+            <p>⏰ DEADLINE PENGUMPULAN ⏰</p>
+            <p style="font-size: 1.4em; margin: 10px 0;">Jumat, 19 Desember 2025</p>
+            <p>Pukul 23:59:59 WIB</p>
+        </section>
+
+        <section class="info-box">
+            <h3>Informasi Umum</h3>
+            <table>
+                <tbody><tr>
+                    <td><strong>Sifat</strong></td>
+                    <td>Kelompok (5 orang) - Take Home Final Project</td>
+                </tr>
+                <tr>
+                    <td><strong>Waktu Pengerjaan</strong></td>
+                    <td>3 minggu sejak soal dibagikan</td>
+                </tr>
+                <tr>
+                    <td><strong>Pengumpulan</strong></td>
+                    <td>GitHub Repository + Frontend Deployment (Vercel) + Backend Deployment (Domain) + Video Presentasi</td>
+                </tr>
+                <tr>
+                    <td><strong>Platform</strong></td>
+                    <td>ReactJS (Frontend) + Python Pyramid (Backend) + PostgreSQL (Database)</td>
+                </tr>
+            </tbody></table>
+        </section>
+
+        <section class="warning-box">
+            <h3>PENTING - PENENTUAN STUDI KASUS</h3>
+            <p>Studi kasus yang dikerjakan ditentukan berdasarkan MODULASI URUTAN KELOMPOK yang dibagi oleh Asisten Mata Kuliah. Kelompok akan mendapatkan nomor studi kasus (0-9) sesuai dengan pembagian dari Asisten.</p>
+        </section>
+
+        <h2>Capaian Pembelajaran Mata Kuliah (CPMK)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>CPMK</th>
+                    <th>Pertemuan</th>
+                    <th>Materi yang Diujikan</th>
+                    <th>Bobot UAS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="cpmk-badge">CPMK0501</span></td>
+                    <td>P1-P15</td>
+                    <td>HTML/CSS, Form, Table, JavaScript, ReactJS, Python, OOP, Pyramid, PostgreSQL, Full-Stack Project</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td><span class="cpmk-badge">Bonus</span></td>
+                    <td>-</td>
+                    <td>Deployment, Documentation, Video Presentation</td>
+                    <td>10%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Kriteria Penilaian Detail</h2>
+
+        <h3>CPMK0501: Full-Stack Web Development - 100 poin</h3>
+        <table>
+            <tbody><tr>
+                <th style="width: 25%;">Aspek</th>
+                <th style="width: 10%;">Bobot</th>
+                <th style="width: 65%;">Kriteria</th>
+            </tr>
+            <tr>
+                <td><strong>Frontend - React Components</strong></td>
+                <td>15</td>
+                <td>
+                    Minimal 6 functional components, proper component hierarchy,
+                    props passing, reusable components, routing dengan React Router
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Frontend - State Management</strong></td>
+                <td>10</td>
+                <td>
+                    useState dan useEffect digunakan dengan tepat,
+                    proper state lifting, controlled components
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Frontend - UI/UX dan CSS</strong></td>
+                <td>15</td>
+                <td>
+                    Responsive design, CSS modern (Flexbox/Grid),
+                    consistent design, loading states, user-friendly interface
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Frontend - Forms dan Validation</strong></td>
+                <td>10</td>
+                <td>
+                    Minimal 3 forms dengan validation,
+                    error handling, user feedback yang baik
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Backend - RESTful API</strong></td>
+                <td>15</td>
+                <td>
+                    Minimal 6 endpoints (GET, POST, PUT, DELETE),
+                    proper HTTP methods dan status codes, JSON response
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Backend - Business Logic dan OOP</strong></td>
+                <td>10</td>
+                <td>
+                    Python OOP implementation, business logic terstruktur,
+                    data validation, error handling
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Database - Design dan Implementation</strong></td>
+                <td>15</td>
+                <td>
+                    PostgreSQL dengan SQLAlchemy ORM,
+                    minimal 3 tabel dengan relasi yang tepat,
+                    migrations dengan Alembic
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Authentication dan Authorization</strong></td>
+                <td>10</td>
+                <td>
+                    User login/register, password hashing,
+                    session/token management, protected routes, role-based access
+                </td>
+            </tr>
+        </tbody></table>
+
+        <p style="margin-top: 15px; font-style: italic; color: #666;"><strong>Catatan:</strong> Total bobot CPMK0501 adalah 100 poin. Semua aspek frontend, backend, dan database akan dinilai secara komprehensif.</p>
+
+        <h3>Bonus: Deployment, Documentation dan Presentation - 10 poin</h3>
+        <table>
+            <tbody><tr>
+                <th>Aspek</th>
+                <th>Bobot</th>
+                <th>Kriteria</th>
+            </tr>
+            <tr>
+                <td>Frontend Deployment</td>
+                <td>2</td>
+                <td>Deploy frontend ke Vercel, berfungsi dengan baik</td>
+            </tr>
+            <tr>
+                <td>Backend Deployment</td>
+                <td>2</td>
+                <td>Deploy backend ke domain *.web.id (beli sendiri di Niagahoster/Rumahweb)</td>
+            </tr>
+            <tr>
+                <td>GitHub Repository</td>
+                <td>2</td>
+                <td>
+                    Repository terorganisir, minimal 30 commits dari berbagai anggota,
+                    .gitignore proper, clean code
+                </td>
+            </tr>
+            <tr>
+                <td>Documentation</td>
+                <td>2</td>
+                <td>
+                    README lengkap (tim, deskripsi, tech stack, cara install, API docs),
+                    code comments yang membantu
+                </td>
+            </tr>
+            <tr>
+                <td>Video Presentation</td>
+                <td>2</td>
+                <td>
+                    Video demo aplikasi (max 10 menit),
+                    penjelasan fitur, pembagian tugas, upload ke YouTube/Drive
+                </td>
+            </tr>
+        </tbody></table>
+
+        <h3>Ringkasan Bobot Penilaian</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Komponen</th>
+                    <th>Bobot</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CPMK0501 - Full-Stack Web Development</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>(Bonus) - Deployment, Documentation, Video</td>
+                    <td>10%</td>
+                </tr>
+                <tr style="background: #3498db; color: white; font-weight: bold;">
+                    <td>TOTAL</td>
+                    <td>110%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>10 Studi Kasus Berdasarkan Digit Terakhir NIM Ketua</h2>
+
+        <div class="case-box">
+            <h4>Digit 0 - E-Learning Platform</h4>
+            <p><strong>Deskripsi:</strong> Platform pembelajaran online sederhana dengan sistem manajemen kursus dan enrollment.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login, Logout dengan Student dan Instructor roles</td></tr>
+                <tr><td>2</td><td><strong>Course Management</strong> - Instructor: CRUD courses berisi title, description, category | Student: Browse courses</td></tr>
+                <tr><td>3</td><td><strong>Enrollment System</strong> - Student enroll atau unenroll course, view enrolled courses</td></tr>
+                <tr><td>4</td><td><strong>Content/Module Management</strong> - Instructor: Add modules atau materials per course berisi text, video links</td></tr>
+                <tr><td>5</td><td><strong>Dashboard</strong> - Instructor: View enrolled students | Student: View enrolled courses dan progress</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional Bonus:</strong> Search dan filter courses, rating atau review system</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Courses (id, title, description, category, instructor_id), Enrollments (id, student_id, course_id, enrolled_date), Modules (id, course_id, title, content, order)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 1 - Clinic Appointment System</h4>
+            <p><strong>Deskripsi:</strong> Sistem booking appointment klinik dengan manajemen jadwal dokter dan patient records.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login dengan Patient dan Doctor roles</td></tr>
+                <tr><td>2</td><td><strong>Doctor Management</strong> - View daftar dokter dengan specialization dan jadwal praktek</td></tr>
+                <tr><td>3</td><td><strong>Appointment Booking</strong> - Patient: Book appointment, view upcoming appointments | Doctor: View schedule</td></tr>
+                <tr><td>4</td><td><strong>Medical Records</strong> - Doctor: Create dan view patient notes atau diagnosis setelah appointment</td></tr>
+                <tr><td>5</td><td><strong>Dashboard</strong> - Doctor: View daily appointments | Patient: View appointment history</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional Bonus:</strong> Reschedule atau cancel appointment, appointment status pending atau confirmed atau completed</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Doctors (id, user_id, specialization, schedule), Appointments (id, patient_id, doctor_id, date, time, status), Medical_Records (id, appointment_id, diagnosis, notes)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 2 - Food Ordering System</h4>
+            <p><strong>Deskripsi:</strong> Sistem pemesanan makanan online dengan shopping cart dan order tracking.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Customer dan Restaurant Owner roles)</td></tr>
+                <tr><td>2</td><td><strong>Menu Management</strong> - Owner: CRUD menu items (name, category, price, image) | Customer: Browse menu</td></tr>
+                <tr><td>3</td><td><strong>Shopping Cart</strong> - Add to cart, update quantity, remove items, view total</td></tr>
+                <tr><td>4</td><td><strong>Order Management</strong> - Customer: Place order, view order history | Owner: View incoming orders</td></tr>
+                <tr><td>5</td><td><strong>Order Status</strong> - Owner: Update status (pending/processing/ready/delivered) | Customer: Track status</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Search dan filter menu, payment method selection</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Menu_Items (id, name, category, price, image_url, available), Orders (id, customer_id, total, status, order_date), Order_Items (id, order_id, menu_item_id, quantity, price)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 3 - Property Listing Platform</h4>
+            <p><strong>Deskripsi:</strong> Platform listing properti untuk jual/sewa dengan sistem inquiry dan favorites.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Buyer dan Agent roles)</td></tr>
+                <tr><td>2</td><td><strong>Property Listing</strong> - Agent: CRUD properties (title, description, price, type, location, photos) | Buyer: Browse</td></tr>
+                <tr><td>3</td><td><strong>Search dan Filter</strong> - Filter by price range, property type (house/apartment), location</td></tr>
+                <tr><td>4</td><td><strong>Property Details</strong> - View detail property dengan photos, specs (bedrooms, bathrooms, area)</td></tr>
+                <tr><td>5</td><td><strong>Inquiry System</strong> - Buyer: Send inquiry/contact agent | Agent: View inquiries</td></tr>
+                <tr><td>6</td><td><strong>Favorites</strong> - Buyer: Save/unsave favorite properties, view saved list</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Agent profile page, property comparison</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role, phone), Properties (id, agent_id, title, description, price, type, location, bedrooms, bathrooms, area), Property_Photos (id, property_id, photo_url), Favorites (id, user_id, property_id), Inquiries (id, property_id, buyer_id, message, date)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 4 - Job Portal System</h4>
+            <p><strong>Deskripsi:</strong> Platform lowongan kerja dengan job posting, aplikasi, dan applicant tracking.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Job Seeker dan Employer roles)</td></tr>
+                <tr><td>2</td><td><strong>Job Posting</strong> - Employer: CRUD job posts (title, description, requirements, salary) | Seeker: Browse jobs</td></tr>
+                <tr><td>3</td><td><strong>Profile Management</strong> - Seeker: Create profile (name, skills, experience, CV upload/link)</td></tr>
+                <tr><td>4</td><td><strong>Job Application</strong> - Seeker: Apply to jobs, view application status | Employer: View applicants</td></tr>
+                <tr><td>5</td><td><strong>Search dan Filter</strong> - Filter jobs by title, location, salary range, job type</td></tr>
+                <tr><td>6</td><td><strong>Application Management</strong> - Employer: Review, shortlist, atau reject applicants</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Saved jobs, company profile page</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Job_Seekers (id, user_id, skills, experience, cv_url), Jobs (id, employer_id, title, description, requirements, salary, location, type), Applications (id, job_id, seeker_id, status, applied_date)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 5 - Inventory Management System</h4>
+            <p><strong>Deskripsi:</strong> Sistem manajemen stok barang dengan supplier management dan stock tracking.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Admin dan Staff roles)</td></tr>
+                <tr><td>2</td><td><strong>Product Management</strong> - CRUD products (name, SKU, category, price, stock quantity, min stock)</td></tr>
+                <tr><td>3</td><td><strong>Supplier Management</strong> - CRUD suppliers (name, contact, email, products supplied)</td></tr>
+                <tr><td>4</td><td><strong>Stock In/Out</strong> - Add stock (purchase), reduce stock (sales), view transaction history</td></tr>
+                <tr><td>5</td><td><strong>Low Stock Alert</strong> - Highlight products dengan stock di bawah minimum</td></tr>
+                <tr><td>6</td><td><strong>Reports</strong> - View stock summary, transaction history, supplier list</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Export reports to CSV, barcode generation</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Products (id, name, sku, category, price, stock, min_stock), Suppliers (id, name, contact, email), Transactions (id, product_id, type, quantity, date, notes), Product_Suppliers (id, product_id, supplier_id)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 6 - Gym Class Booking System</h4>
+            <p><strong>Deskripsi:</strong> Platform booking kelas gym dengan membership dan attendance tracking.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Member dan Trainer roles)</td></tr>
+                <tr><td>2</td><td><strong>Class Management</strong> - Trainer: CRUD classes (name, description, schedule, capacity) | Member: Browse classes</td></tr>
+                <tr><td>3</td><td><strong>Booking System</strong> - Member: Book class, view booked classes | Trainer: View participants</td></tr>
+                <tr><td>4</td><td><strong>Membership Management</strong> - Admin: CRUD membership plans | Member: View membership status dan expiry</td></tr>
+                <tr><td>5</td><td><strong>Attendance</strong> - Trainer: Mark attendance | Member: View attendance history</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Cancel booking, class capacity limit, personal training sessions</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Members (id, user_id, membership_plan, expiry_date), Classes (id, trainer_id, name, description, schedule, capacity), Bookings (id, member_id, class_id, booking_date), Attendance (id, booking_id, attended, date)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 7 - Library Management System</h4>
+            <p><strong>Deskripsi:</strong> Sistem perpustakaan dengan book cataloging, borrowing, dan return management.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Member dan Librarian roles)</td></tr>
+                <tr><td>2</td><td><strong>Book Management</strong> - Librarian: CRUD books (title, author, ISBN, category, copies available) | Member: Browse</td></tr>
+                <tr><td>3</td><td><strong>Borrowing System</strong> - Member: Borrow book (max 3), view current borrows | Librarian: Process borrow request</td></tr>
+                <tr><td>4</td><td><strong>Return System</strong> - Member: Return book | Librarian: Process return, calculate late fees</td></tr>
+                <tr><td>5</td><td><strong>Search dan Filter</strong> - Search books by title, author, or category</td></tr>
+                <tr><td>6</td><td><strong>History</strong> - Member: View borrowing history | Librarian: View all transactions</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Book reservation, rating/review books</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Books (id, title, author, isbn, category, copies_total, copies_available), Borrowings (id, book_id, member_id, borrow_date, due_date, return_date, fine)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 8 - Event Ticketing System</h4>
+            <p><strong>Deskripsi:</strong> Platform booking tiket event dengan seat selection dan ticket management.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Attendee dan Organizer roles)</td></tr>
+                <tr><td>2</td><td><strong>Event Management</strong> - Organizer: CRUD events (name, date, venue, capacity, ticket price) | Attendee: Browse</td></tr>
+                <tr><td>3</td><td><strong>Ticket Booking</strong> - Attendee: Book tickets (select quantity), view booked tickets</td></tr>
+                <tr><td>4</td><td><strong>Booking Management</strong> - Organizer: View bookings dan attendees | Attendee: View booking history</td></tr>
+                <tr><td>5</td><td><strong>Ticket Confirmation</strong> - Generate booking code, email confirmation</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> QR code tickets, seat selection, payment integration</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Events (id, organizer_id, name, description, date, venue, capacity, ticket_price), Bookings (id, event_id, attendee_id, quantity, total_price, booking_code, booking_date)
+            </div>
+        </div>
+
+        <div class="case-box">
+            <h4>Digit 9 - Travel Package Booking</h4>
+            <p><strong>Deskripsi:</strong> Platform booking paket wisata dengan destination catalog dan booking management.</p>
+
+            <p><strong>Fitur Wajib (Core Features):</strong></p>
+            <table>
+                <tbody><tr><td>1</td><td><strong>User Authentication</strong> - Register, Login (Tourist dan Travel Agent roles)</td></tr>
+                <tr><td>2</td><td><strong>Package Management</strong> - Agent: CRUD packages (name, destination, duration, price, itinerary) | Tourist: Browse</td></tr>
+                <tr><td>3</td><td><strong>Destination Catalog</strong> - View destinations dengan photos, description, popular packages</td></tr>
+                <tr><td>4</td><td><strong>Booking System</strong> - Tourist: Book package (date, number of travelers), view bookings</td></tr>
+                <tr><td>5</td><td><strong>Booking Management</strong> - Agent: View dan manage bookings (confirm/cancel)</td></tr>
+                <tr><td>6</td><td><strong>Reviews</strong> - Tourist: Review packages after trip | View package ratings</td></tr>
+            </tbody></table>
+
+            <p><strong>Fitur Opsional (Bonus):</strong> Payment integration, tour guide assignment</p>
+
+            <div class="tech-stack">
+                <strong>Database:</strong> Users (id, name, email, password, role), Destinations (id, name, description, photo_url), Packages (id, agent_id, destination_id, name, duration, price, itinerary, max_travelers), Bookings (id, package_id, tourist_id, travel_date, travelers_count, total_price, status), Reviews (id, package_id, tourist_id, rating, comment)
+            </div>
+        </div>
+
+        <h2>Technical Requirements dan Stack</h2>
+
+        <div class="info-box">
+            <h3>🚀 Required Technology Stack</h3>
+            <table style="margin-top: 15px; width: 100%;">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">Komponen</th>
+                        <th style="width: 80%;">Teknologi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Frontend</strong></td>
+                        <td>ReactJS (Create React App atau Vite), React Router, Axios/Fetch API</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Styling</strong></td>
+                        <td>CSS murni (wajib untuk CPMK0501) - boleh tambah Tailwind/Bootstrap</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Backend</strong></td>
+                        <td>Python 3.x, Pyramid Framework, SQLAlchemy ORM, Alembic (migrations)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Database</strong></td>
+                        <td>PostgreSQL (wajib)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deployment</strong></td>
+                        <td>Frontend: Vercel | Backend: Domain *.web.id (beli sendiri di Niagahoster/Rumahweb)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Struktur Project Minimal</h3>
+        <pre><code>project-root/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/        # Reusable components
+│   │   ├── pages/             # Page components
+│   │   ├── services/          # API calls
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   └── index.js
+│   ├── package.json
+│   └── README.md
+│
+├── backend/
+│   ├── app/
+│   │   ├── models/            # Database models (SQLAlchemy)
+│   │   ├── views/             # API endpoints/routes
+│   │   ├── __init__.py
+│   │   └── routes.py
+│   ├── alembic/               # Database migrations
+│   ├── requirements.txt
+│   ├── development.ini
+│   └── README.md
+│
+└── README.md (root - project overview)</code></pre>
+
+        <div class="subdomain-box">
+            <h3>🌐 DOMAIN UNTUK BACKEND DEPLOYMENT</h3>
+            <p style="margin-top: 10px;">Setiap kelompok WAJIB membeli domain sendiri untuk deploy backend.</p>
+            <p><strong>Domain:</strong> *.web.id (contoh: kelompok1.web.id, team-elearning.web.id)</p>
+            <p><strong>Tempat Beli:</strong> Niagahoster, Rumahweb, atau penyedia domain Indonesia lainnya</p>
+            <p><strong>Harga:</strong> Sekitar Rp 15.000 - Rp 25.000 per tahun untuk .web.id</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">💡 Beli domain maksimal minggu pertama! Gunakan untuk deployment backend Pyramid + PostgreSQL</p>
+        </div>
+
+        <h2>Ketentuan Pengumpulan</h2>
+
+        <div class="info-box">
+            <h3>Format Pengumpulan Lengkap</h3>
+            <table>
+                <tbody><tr>
+                    <th style="width: 30%;">Item</th>
+                    <th>Deskripsi</th>
+                </tr>
+                <tr>
+                    <td><strong>1. GitHub Repository</strong></td>
+                    <td>
+                        • Repository public dengan nama: <span class="code-text">uas-paw-kelompok-[nama]</span><br>
+                        • Struktur folder terorganisir (frontend/ dan backend/)<br>
+                        • Minimal 30 commits dari berbagai anggota<br>
+                        • .gitignore untuk environment files dan dependencies<br>
+                        • Branch protection dan PR workflow (opsional, bonus poin)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>2. README.md</strong></td>
+                    <td>
+                        • Nama tim dan anggota (nama, NIM, pembagian tugas)<br>
+                        • Deskripsi project dan fitur utama<br>
+                        • Tech stack yang digunakan<br>
+                        • Cara instalasi dan menjalankan (local development)<br>
+                        • Link deployment (frontend dan backend)<br>
+                        • API documentation (endpoints, request/response format)<br>
+                        • Screenshot aplikasi<br>
+                        • Link video presentasi
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>3. Frontend Deployment</strong></td>
+                    <td>
+                        • Deploy ke Vercel<br>
+                        • URL: [nama-tim].vercel.app<br>
+                        • Environment variables configured<br>
+                        • Berfungsi penuh dan responsive
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>4. Backend Deployment</strong></td>
+                    <td>
+                        • Deploy ke domain *.web.id yang sudah dibeli<br>
+                        • URL: [nama-kelompok].web.id<br>
+                        • PostgreSQL database configured<br>
+                        • All endpoints accessible dan documented
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>5. Video Presentasi</strong></td>
+                    <td>
+                        • Durasi: maksimal 10 menit<br>
+                        • Isi: intro tim, demo aplikasi dengan semua fitur, pembagian tugas anggota<br>
+                        • Upload ke YouTube unlisted atau public, atau Google Drive<br>
+                        • Link video di README.md
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>6. Database Schema</strong></td>
+                    <td>
+                        • Export SQL schema atau migrations<br>
+                        • ERD diagram (opsional, bonus poin)<br>
+                        • Seed data untuk testing
+                    </td>
+                </tr>
+            </tbody></table>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://forms.gle/9vNLbRyub759FCme6" class="submit-button" target="_blank">
+                SUBMIT TUGAS UAS DI SINI
+            </a>
+        </div>
+
+        <h2>Checklist Sebelum Submit</h2>
+        <table>
+            <tbody><tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Frontend:</strong> Semua fitur wajib berfungsi, responsive, no console errors</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Backend:</strong> Semua endpoints tested, proper error handling, validation</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Database:</strong> Minimal 3 tabel dengan relasi, migrations lengkap, seed data</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Forms:</strong> Minimal 3 forms dengan validation berfungsi</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>CRUD:</strong> Create, Read, Update, Delete semua berfungsi</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Authentication:</strong> Login/register berfungsi, password hashed, role-based access</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Deployment:</strong> Frontend dan backend live, URL accessible, CORS configured</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>GitHub:</strong> Minimal 30 commits, dari berbagai anggota, code terorganisir</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Documentation:</strong> README lengkap, API docs, cara install dan run</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; text-align: center;">✓</td>
+                <td><strong>Video:</strong> Max 10 menit, demo all features, pembagian tugas, link di README</td>
+            </tr>
+        </tbody></table>
+
+        <h2>Pembagian Tugas Tim (Rekomendasi)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Tanggung Jawab Utama</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Team Leader</strong></td>
+                    <td>Koordinasi tim, integration frontend-backend, deployment, dokumentasi, video</td>
+                    <td>1 orang</td>
+                </tr>
+                <tr>
+                    <td><strong>Frontend Developer</strong></td>
+                    <td>React components, routing, state management, UI/UX, forms, validation, responsive design</td>
+                    <td>2 orang</td>
+                </tr>
+                <tr>
+                    <td><strong>Backend Developer</strong></td>
+                    <td>API endpoints, business logic, authentication, security, error handling</td>
+                    <td>2 orang</td>
+                </tr>
+                <tr>
+                    <td><strong>Database Specialist</strong></td>
+                    <td>Database design, models, migrations, queries, relasi antar tabel</td>
+                    <td>1 orang</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-top: 15px;"><strong>Note:</strong> Pembagian bisa disesuaikan (misalnya 1 leader + 2 full-stack). Yang penting semua anggota contribute secara aktif dan terlihat di git commits.</p>
+
+        <h2>Tips Pengerjaan Proyek</h2>
+        <table>
+            <tbody><tr>
+                <td style="width: 50px; font-weight: bold;">1</td>
+                <td><strong>Week 1 - Planning dan Setup:</strong> Diskusi fitur, design database schema (ERD), setup repository, setup development environment, bagi tugas, buat mockup/wireframe</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">2</td>
+                <td><strong>Week 2 - Development:</strong> Backend API development (endpoints, models, auth), Frontend components (pages, forms), Database migrations, Testing API dengan Postman</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">3</td>
+                <td><strong>Week 3 - Integration dan Finalisasi:</strong> Frontend-backend integration, CORS configuration, bug fixes, deployment, video recording dan editing, finalisasi dokumentasi</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">4</td>
+                <td><strong>Git Workflow:</strong> Gunakan branches (feature branches), pull requests untuk code review, commit messages yang jelas, jangan push langsung ke main</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">5</td>
+                <td><strong>Communication:</strong> Daily/regular updates di grup, dokumentasikan keputusan penting, gunakan project management tools (Trello, Notion, GitHub Projects)</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">6</td>
+                <td><strong>Testing:</strong> Test setiap feature sebelum merge, test integration frontend-backend, prepare seed data untuk demo, test di production sebelum submit</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">7</td>
+                <td><strong>Database:</strong> Buat ERD dulu sebelum coding, gunakan Alembic untuk migrations, test relasi antar tabel, backup database regularly</td>
+            </tr>
+            <tr>
+                <td style="width: 50px; font-weight: bold;">8</td>
+                <td><strong>Documentation:</strong> Document as you go (jangan tunggu akhir), API docs penting untuk kolaborasi frontend-backend, screenshot fitur untuk README</td>
+            </tr>
+        </tbody></table>
+
+        <div class="warning-box">
+            <h3>⚠️ PLAGIARISME dan ACADEMIC INTEGRITY</h3>
+            <p style="margin-top: 10px;">Setiap bentuk plagiarisme akan dikenakan sanksi tegas:</p>
+            <table style="margin-top: 15px;color:red;">
+                <tbody><tr>
+                    <td style="width: 100px; font-weight: bold;">NILAI 0</td>
+                    <td>Jika ditemukan kemiripan code &gt;40% dengan kelompok lain pada logic utama</td>
+                </tr>
+                <tr>
+                    <td style="width: 100px; font-weight: bold;">NILAI 0</td>
+                    <td>Jika copy-paste project dari internet tanpa modifikasi signifikan</td>
+                </tr>
+                <tr>
+                    <td style="width: 100px; font-weight: bold;">NILAI 0</td>
+                    <td>Jika ada anggota yang tidak contribute (no git commits atau fake commits)</td>
+                </tr>
+            </tbody></table>
+            <p style="margin-top: 15px;"><strong>DIPERBOLEHKAN:</strong></p>
+            <ul style="margin-left: 30px; margin-top: 10px;">
+                <li>Menggunakan tutorial dan dokumentasi official sebagai learning reference</li>
+                <li>Menggunakan library dan framework yang umum (Axios, React components library)</li>
+                <li>Bertanya ke AI assistant untuk debugging dan learning (tapi HARUS dipahami dan dimodifikasi)</li>
+            </ul>
+        </div>
+
+        <h2>Resources dan References</h2>
+        <div class="info-box">
+            <h3>📚 Recommended Resources</h3>
+            <ul>
+                <li><strong>ReactJS Documentation:</strong> https://react.dev/learn</li>
+                <li><strong>React Router:</strong> https://reactrouter.com/</li>
+                <li><strong>Python Pyramid:</strong> https://docs.pylonsproject.org/projects/pyramid/</li>
+                <li><strong>SQLAlchemy ORM:</strong> https://docs.sqlalchemy.org/</li>
+                <li><strong>Alembic Migrations:</strong> https://alembic.sqlalchemy.org/</li>
+                <li><strong>PostgreSQL:</strong> https://www.postgresql.org/docs/</li>
+                <li><strong>Vercel Deployment:</strong> https://vercel.com/docs</li>
+                <li><strong>Git Best Practices:</strong> https://git-scm.com/book/en/v2</li>
+                <li><strong>REST API Design:</strong> https://restfulapi.net/</li>
+            </ul>
+        </div>
+
+        <div class="motivation-box">
+            <p style="font-size: 0.9em; margin-bottom: 15px;">— TEAMWORK MAKES THE DREAM WORK —</p>
+            <p>"Alone we can do so little;<br>together we can do so much."</p>
+            <p style="font-size: 0.8em; margin-top: 15px;">Selamat mengerjakan UAS Final Project!</p>
+        </div>
+
+        <footer>
+            <h3>Kontak dan Pertanyaan</h3>
+            <p>Jika ada pertanyaan terkait soal UAS atau request subdomain, silakan hubungi dosen pengampu.</p>
+
+            <div style="margin: 20px 0;">
+                <a href="mailto:muhammad.algifari@ifitera.ac.id?subject=%23tanya-uas-paw" class="email-button">
+                    📧 TANYA DOSEN VIA EMAIL
+                </a>
+            </div>
+
+            <p style="margin-top: 30px; color: #999; font-size: 0.9em;">
+                <strong>Program Studi Teknik Informatika</strong><br>
+                Fakultas Teknologi Industri - Institut Teknologi Sumatera<br>
+                IF25-22014 - Pengembangan Aplikasi Web | Dosen Pengempu: M Habib Algifari, S.Kom., M.T.I.
+            </p>
+        </footer>
+    </div>
+
+
+</body></html>
