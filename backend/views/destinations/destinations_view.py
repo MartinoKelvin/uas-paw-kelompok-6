@@ -11,6 +11,14 @@ class FromRequest(BaseModel):
     country: Optional[str] = None
     search: Optional[str] = None
 
+def serialization_data(destination):
+    return{
+        "id" : str(destination.id),
+        "name": destination.name,
+        "description" : destination.description,
+        "photoUrl" : destination.photo_url,
+        "country" : destination.country,
+    }
 @view_config(route_name="destinations", request_method="GET", renderer="json")
 def destinations(request):
     # request validation
@@ -32,13 +40,26 @@ def destinations(request):
             stmt = select(Destination).where(Destination.country == req_data.country and Destination.name == req_data.search)
 
         try:
-            result = session.execute(stmt).scalars().one()
-            if not result:
-                return Response(json_body={"message": "User tidak ditemukan"}, status=401)
-        except NoResultFound:
-            return Response(json_body={"message": "User tidak ditemukan"}, status=401)
+            result = session.execute(stmt).scalars().all()#agar kembalikan semua, atau tidak sama sekali (imo gitu sih, cmiiw)
+            return [serialization_data(dest) for dest in result] #serialisasikan semua destinasi yang ada dari .all()
         except Exception as e:
             print(e)
             return Response(json_body={"error": "Internal Server Error"}, status=500)
 
     return {"data": str(result.country)}
+
+@view_config(route_name="destination_detail", request_method="GET", renderer="json")
+def destination_detail(request):
+    dest_id = request.matchdict.get("id")
+
+    with Session() as session:
+        stmt = select(Destination).where(Destination.id==dest_id)
+        
+        try :
+            result = session.execute(stmt).scalars().one() #tampilkan 1 data 
+
+            return serialization_data(result) #serialisasikan
+        except NoResultFound:
+            return Response(json_body={"error": "Destination not founfd"}, status=404)
+        except Exception as e:
+            return Response(json_body={"error": "Invalid ID or server error"}, status=400)
