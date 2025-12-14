@@ -10,8 +10,8 @@ def serialization_data(pkg):
         "maxTravelers": pkg.max_travelers,
         "contactPhone": pkg.contact_phone,
         "images": pkg.images,
-        "rating": 0, 
+        "rating": 0,
         "reviewsCount": 0,
         "destinationName": pkg.destination.name if pkg.destination else None,
-        "country": pkg.destination.country if pkg.destination else None
+        "country": pkg.destination.country if pkg.destination else None,
     }

@@ -13,7 +13,6 @@ def main():
 
         ## packages
         config.add_route("packages", "/api/packages")
-        config.add_route("package_search", "/api/packages/search")
         config.add_route("package_detail", "/api/packages/{id}")
         config.add_route("package_agent", "/api/packages/agent/{agentId}")
 

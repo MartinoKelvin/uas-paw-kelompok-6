@@ -11,6 +11,7 @@ from typing import List
 from . import serialization_data
 import uuid
 
+
 class PackageRequest(BaseModel):
     destinationId: str
     name: str
@@ -20,6 +21,7 @@ class PackageRequest(BaseModel):
     maxTravelers: int = Field(gt=0)
     contactPhone: str
     images: List[str]
+
 
 @view_config(route_name="packages", request_method="GET", renderer="json")
 def get_packages(request):
@@ -33,13 +35,13 @@ def get_packages(request):
     with Session() as session:
         stmt = select(Package)
 
-        if destination_id and destination_id != 'all':
+        if destination_id and destination_id != "all":
             try:
                 uuid.UUID(destination_id)
                 stmt = stmt.where(Package.destination_id == destination_id)
             except ValueError:
                 pass
-        
+
         if search_query:
             stmt = stmt.where(Package.name.ilike(f"%{search_query}%"))
 
@@ -49,14 +51,14 @@ def get_packages(request):
         if max_price:
             stmt = stmt.where(Package.price <= float(max_price))
 
-        if sort_by == 'price':
+        if sort_by == "price":
             sort_column = Package.price
-        elif sort_by == 'duration':
+        elif sort_by == "duration":
             sort_column = Package.duration
         else:
             sort_column = Package.created_at
 
-        if order == 'desc':
+        if order == "desc":
             stmt = stmt.order_by(desc(sort_column))
         else:
             stmt = stmt.order_by(asc(sort_column))
@@ -68,11 +70,14 @@ def get_packages(request):
             print(f"Error fetching packages : {e}")
             return Response(json_body={"error": "Internal server error"}, status=500)
 
+
 @view_config(route_name="packages", request_method="POST", renderer="json")
 @jwt_validate
 def create_package(request):
     if request.jwt_claims["role"] != "agent":
-        return Response(json_body={"error": "Forbidden : Only agent can access"}, status=403)
+        return Response(
+            json_body={"error": "Forbidden : Only agent can access"}, status=403
+        )
 
     try:
         req_data = PackageRequest(**request.json_body)
@@ -101,7 +106,7 @@ def create_package(request):
             itinerary=req_data.itinerary,
             max_travelers=req_data.maxTravelers,
             contact_phone=req_data.contactPhone,
-            images=req_data.images
+            images=req_data.images,
         )
 
         try:
@@ -115,4 +120,6 @@ def create_package(request):
         except Exception as e:
             session.rollback()
             print(f"CRITICAL ERROR: {e}")
-            return Response(json_body={"error": f"Internal Server Error: {str(e)}"}, status=500)
+            return Response(
+                json_body={"error": f"Internal Server Error: {str(e)}"}, status=500
+            )
