@@ -6,7 +6,6 @@ from pyramid.request import Request
 from pyramid.response import Response
 from pyramid.renderers import JSON
 from db import Session
-from routes import include_routes
 
 
 class DBRequest(Request):
@@ -60,8 +59,52 @@ def main():
         )
         config.add_renderer('json', json_renderer)
         
-        #all route
-        include_routes(config)
+        # route
+        ## auth
+        config.add_route("register", "/api/auth/register")
+        config.add_route("login", "/api/auth/login")
+        config.add_route("me", "/api/auth/me")
+        config.add_route("update_profile", "/api/auth/profile")
+        config.add_route("change_password", "/api/auth/change-password")
+
+        ## packages
+        config.add_route("packages", "/api/packages")
+        config.add_route("package_detail", "/api/packages/{id}")
+        config.add_route("package_agent", "/api/packages/agent/{agentId}")
+
+        ## destinations
+        config.add_route("destinations", "/api/destinations")
+        config.add_route("destination_detail", "/api/destinations/{id}")
+
+        ## qris
+        config.add_route("qris", "/api/qris")
+        config.add_route("qris_detail", "/api/qris/{id}")
+        config.add_route("qris_preview", "/api/qris/preview")
+        
+        ## payment
+        config.add_route("payment_generate", "/api/payment/generate")
+        
+        ## bookings
+        config.add_route("bookings", "/api/bookings")
+        config.add_route("booking_detail", "/api/bookings/{id}")
+        config.add_route("booking_status", "/api/bookings/{id}/status")
+        config.add_route("booking_payment_upload", "/api/bookings/{id}/payment-proof")
+        config.add_route("booking_payment_verify", "/api/bookings/{id}/payment-verify")
+        config.add_route("booking_payment_reject", "/api/bookings/{id}/payment-reject")
+        config.add_route("booking_by_tourist", "/api/bookings/tourist/{touristId}")
+        config.add_route("booking_by_package", "/api/bookings/package/{packageId}")
+        config.add_route("booking_payment_pending", "/api/bookings/payment/pending")
+        
+        ## reviews
+        config.add_route("reviews", "/api/reviews")
+        config.add_route("review_by_package", "/api/reviews/package/{packageId}")
+        config.add_route("review_by_tourist", "/api/reviews/tourist/{touristId}")
+        
+        ## analytics
+        config.add_route("analytics_agent_stats", "/api/analytics/agent/stats")
+        config.add_route("analytics_agent_package_performance", "/api/analytics/agent/package-performance")
+        config.add_route("analytics_tourist_stats", "/api/analytics/tourist/stats")
+        
         # Static file serving untuk QRIS storage dan payment proofs
         config.add_static_view(name='qris', path='storage/qris', cache_max_age=3600)
         config.add_static_view(name='payment_proofs', path='storage/payment_proofs', cache_max_age=3600)

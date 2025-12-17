@@ -23,7 +23,7 @@ class Booking(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     package_id = Column(
-        UUID(as_uuid=True), ForeignKey("packages.id"), nullable=False, index=True
+        UUID(as_uuid=True), ForeignKey("packages.id", ondelete="CASCADE"), nullable=False, index=True
     )
     tourist_id = Column(
         UUID(as_uuid=True), ForeignKey("users.id"), nullable=False, index=True

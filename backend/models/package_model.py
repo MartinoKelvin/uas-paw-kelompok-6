@@ -35,5 +35,5 @@ class Package(Base):
     # Relationships
     agent = relationship("User", back_populates="packages")
     destination = relationship("Destination", back_populates="packages")
-    bookings = relationship("Booking", back_populates="package")
-    reviews = relationship("Review", back_populates="package")
+    bookings = relationship("Booking", back_populates="package", cascade="all, delete-orphan")
+    reviews = relationship("Review", back_populates="package", cascade="all, delete-orphan")

@@ -1,4 +1,4 @@
-# Wanderlust Inn - Travel Package Booking Platform
+# Wonderfull Inn - Travel Package Booking Platform
 
 A modern, full-featured travel package booking platform built with React, TypeScript, and Tailwind CSS.
 
@@ -131,7 +131,7 @@ cp .env.example .env
 VITE_API_URL=http://localhost:6543
 
 # App Configuration
-VITE_APP_NAME=Wanderlust Inn
+VITE_APP_NAME=Wonderfull Inn
 VITE_APP_VERSION=1.0.0
 
 # Feature Flags (optional)
