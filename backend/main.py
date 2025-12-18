@@ -9,7 +9,6 @@ from db import Session
 
 
 class DBRequest(Request):
-    """Custom Request class that includes dbsession"""
     @property
     def dbsession(self):
         session = Session()
@@ -19,10 +18,8 @@ class DBRequest(Request):
         return session
 
 
+# Intercept all request from client and change the response header to allow cors, not the best practice imo but it is what it is
 def cors_tween_factory(handler, registry):
-    """
-    CORS Tween Factory - handles preflight OPTIONS and adds CORS headers to all responses
-    """
     def cors_tween(request):
         # Handle preflight OPTIONS request
         if request.method == 'OPTIONS':
@@ -43,7 +40,7 @@ def cors_tween_factory(handler, registry):
 
 def main():
     with Configurator() as config:
-        # Add CORS tween (must be added first to intercept all requests)
+        # Intercept all request
         config.add_tween('main.cors_tween_factory')
         
         # Set custom request factory
