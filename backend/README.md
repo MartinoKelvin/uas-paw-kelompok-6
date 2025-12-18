@@ -82,12 +82,12 @@ python -m venv env
 ```
 
 4. Source activate
-Windows
+##### Windows
 
 ```sh
 .\env\Scripts\activate
 ```
-Unix
+##### Unix
 ```sh
 source env/bin/activate
 ```
@@ -127,7 +127,7 @@ python main.py
 ### Requirements:
 - Docker
 - Docker Compose
-atau
+###### atau
 - Podman
 - Podman Compose
 
