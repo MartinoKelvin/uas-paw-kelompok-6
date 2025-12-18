@@ -14,6 +14,7 @@ import MainLayout from "@/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { API_BASE_URL } from "@/services/api";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -185,18 +186,21 @@ export default function ManageDestinationsPage() {
             >
               <CardContent className="p-4 space-y-4">
                 {/* Image preview if photo_url exists */}
-                {dest.photo_url && (
-                  <div className="relative w-full h-48 rounded-lg overflow-hidden">
-                    <img
-                      src={dest.photo_url}
-                      alt={dest.name}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.style.display = "none";
-                      }}
-                    />
-                  </div>
-                )}
+                <div className="relative h-48 w-full overflow-hidden rounded-lg border">
+                  <img
+                    src={
+                      dest.photo_url ||
+                      dest.photoUrl ||
+                      `${API_BASE_URL}/destinations/placeholder.jpg`
+                    }
+                    alt={dest.name}
+                    className="h-full w-full object-cover"
+                    onError={(e) => {
+                      e.target.src =
+                        'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200"><rect fill="%23f3f4f6" width="400" height="200"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999" font-size="16">Image not available</text></svg>';
+                    }}
+                  />
+                </div>
 
                 <div className="flex items-start justify-between">
                   <div>
