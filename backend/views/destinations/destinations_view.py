@@ -76,82 +76,92 @@ def destination_detail(request):
         except Exception as e:
             return Response(json_body={"error": "Invalid ID or server error"}, status=400)
 
-
 @view_config(route_name="destinations", request_method="POST", renderer="json")
 @jwt_validate
 def create_destination(request):
-    # Create storage directory if it doesn't exist
-    storage_dir = Path("storage/destinations")
-    storage_dir.mkdir(parents=True, exist_ok=True)
-    
     try:
-        # Get form data
-        name = request.POST.get("name")
-        description = request.POST.get("description")
-        country = request.POST.get("country")
-        photo_file = request.POST.get("photo")
-        
-        # Validate required fields
-        if not name or not description or not country:
-            return Response(json_body={"error": "Missing required fields: name, description, country"}, status=400)
-        
-        if photo_file is None:
-            return Response(json_body={"error": "Photo file is required"}, status=400)
-        
-        # Handle file upload
         try:
-            filename = photo_file.filename
-            if not filename or filename == '':
-                return Response(json_body={"error": "Photo file is required"}, status=400)
-            
-            # Validate file extension
-            allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.webp'}
-            file_ext = Path(filename).suffix.lower()
-            
-            if file_ext not in allowed_extensions:
-                return Response(json_body={"error": f"File type not allowed. Allowed: {', '.join(allowed_extensions)}"}, status=400)
-            
-            # Check file size (max 5MB)
-            file_content = photo_file.file.read()
-            if len(file_content) > 5 * 1024 * 1024:
-                return Response(json_body={"error": "File size exceeds 5MB limit"}, status=400)
-            
-            # Generate unique filename
-            unique_filename = f"{uuid.uuid4()}{file_ext}"
-            file_path = storage_dir / unique_filename
-            
-            # Save file
-            with open(file_path, 'wb') as f:
-                f.write(file_content)
-            
-            photo_url = f"/destinations/{unique_filename}"
-        except AttributeError as e:
-            return Response(json_body={"error": f"Invalid file upload: {str(e)}"}, status=400)
-        
-        # Save destination to database
+            payload = request.json_body
+        except:
+            return Response(json_body={"error": "Invalid JSON payload"}, status=400)
+
+        name = payload.get("name")
+        description = payload.get("description")
+        country = payload.get("country")
+        photo_url = payload.get("photo_url")
+
+        if not name or not description or not country or not photo_url:
+            return Response(
+                json_body={"error": "name, description, country, photo_url are required"},
+                status=400,
+            )
+
         with Session() as session:
             new_destination = Destination(
-                name=name,
-                description=description,
-                photo_url=photo_url,
-                country=country
+                name=name.strip(),
+                description=description.strip(),
+                country=country.strip(),
+                photo_url=photo_url.strip(),
             )
+
             try:
                 session.add(new_destination)
                 session.commit()
-                dest_id = new_destination.id
-                
                 return {
                     "message": "Destination created successfully",
-                    "destination": {
-                        "id": str(dest_id),
-                        "name": name,
-                        "description": description,
-                        "photoUrl": photo_url,
-                        "country": country
-                    }
+                    "destination": serialization_data(new_destination),
                 }
-            except IntegrityError as err:
+            except IntegrityError:
+                session.rollback()
+                return Response(
+                    json_body={"error": "Destination with this name already exists"},
+                    status=409,
+                )
+
+    except Exception as e:
+        print(f"Error creating destination: {e}")
+        return Response(json_body={"error": "Internal server error"}, status=500)
+
+
+@view_config(route_name="destination_detail", request_method="PUT", renderer="json")
+@jwt_validate
+def update_destination(request):
+    dest_id = request.matchdict.get("id")
+    
+    try:
+        try:
+            payload = request.json_body
+        except:
+            return Response(json_body={"error": "Invalid JSON payload"}, status=400)
+        
+        name = payload.get("name")
+        country = payload.get("country")
+        description = payload.get("description")
+        photo_url = payload.get("photo_url")
+        
+        if not name or not country:
+            return Response(json_body={"error": "Name and country are required"}, status=400)
+        
+        with Session() as session:
+            stmt = select(Destination).where(Destination.id == dest_id)
+            try:
+                destination = session.execute(stmt).scalars().one()
+            except NoResultFound:
+                return Response(json_body={"error": "Destination not found"}, status=404)
+
+            destination.name = name.strip()
+            destination.country = country.strip()
+            destination.description = (description or "").strip()
+            if photo_url:
+                destination.photo_url = photo_url.strip()
+            
+            try:
+                session.commit()
+                return {
+                    "message": "Destination updated successfully",
+                    "destination": serialization_data(destination)
+                }
+            except IntegrityError:
                 session.rollback()
                 return Response(json_body={"error": "Destination with this name already exists"}, status=409)
             except Exception as err:
@@ -159,6 +169,34 @@ def create_destination(request):
                 return Response(json_body={"error": str(err)}, status=500)
                 
     except Exception as e:
-        print(f"Error creating destination: {e}")
+        print(f"Error updating destination: {e}")
         return Response(json_body={"error": "Internal server error"}, status=500)
+
+
+@view_config(route_name="destination_detail", request_method="DELETE", renderer="json")
+@jwt_validate
+def delete_destination(request):
+    dest_id = request.matchdict.get("id")
+    
+    try:
+        with Session() as session:
+            stmt = select(Destination).where(Destination.id == dest_id)
+            try:
+                destination = session.execute(stmt).scalars().one()
+            except NoResultFound:
+                return Response(json_body={"error": "Destination not found"}, status=404)
+            
+            try:
+                session.delete(destination)
+                session.commit()
+                return {
+                    "message": "Destination deleted successfully",
+                    "id": str(dest_id)
+                }
+            except Exception as err:
+                session.rollback()
+                return Response(json_body={"error": str(err)}, status=500)
+                
+    except Exception as e:
+        print(f"Error deleting destination: {e}")
         return Response(json_body={"error": "Internal server error"}, status=500)

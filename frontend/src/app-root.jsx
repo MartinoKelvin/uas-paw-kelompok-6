@@ -1,9 +1,11 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "sonner";
+import WishlistPage from "@/pages/wishlist-page";
 import { useAuthStore } from "@/store/auth-store";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { RoutePreloader } from "@/components/route-preloader";
+import { ProtectedRoute } from "@/components/protected-route";
 import { PackagesPageSkeleton, DashboardPageSkeleton, DetailPageSkeleton, AuthPageSkeleton, GenericPageSkeleton,  } from "@/components/ui/skeleton";
 
 // Eager load critical routes (landing page)
@@ -29,6 +31,8 @@ const TouristDashboard = lazy(() => import("@/pages/dashboard/tourist-dashboard"
 const AgentDashboard = lazy(() => import("@/pages/dashboard/agent-dashboard"));
 const SignIn = lazy(() => import("@/pages/auth/sign-in").then((m) => ({ default: m.SignIn })));
 const SignUp = lazy(() => import("@/pages/auth/sign-up").then((m) => ({ default: m.SignUp })));
+const EditDestinationPage = lazy(() => import("@/pages/edit-destination-page"));
+const ManageDestinationsPage = lazy(() => import("@/pages/manage-destinations-page"));
 
 function DashboardRouter() {
   const { user } = useAuthStore();
@@ -151,6 +155,17 @@ export default function App() {
             }
           />
           <Route
+              path="/manage-destinations"
+              element={
+
+                  <Suspense fallback={<DashboardPageSkeleton />}>
+                    <ManageDestinationsPage />
+                  </Suspense>
+
+              }
+            />
+
+          <Route
             path="/create-package"
             element={
               <Suspense fallback={<GenericPageSkeleton />}>
@@ -167,6 +182,17 @@ export default function App() {
             }
           />
           <Route
+            path="/edit-destination/:id"
+            element={
+             
+                <Suspense fallback={<GenericPageSkeleton />}>
+                  <EditDestinationPage />
+                </Suspense>
+           
+            }
+          />
+
+          <Route
             path="/edit-package/:id"
             element={
               <Suspense fallback={<GenericPageSkeleton />}>
@@ -180,6 +206,16 @@ export default function App() {
               <Suspense fallback={<DashboardPageSkeleton />}>
                 <DashboardRouter />
               </Suspense>
+            }
+          />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <Suspense fallback={<PackagesPageSkeleton />}>
+                  <WishlistPage />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
           <Route

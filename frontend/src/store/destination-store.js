@@ -61,6 +61,22 @@ export const useDestinationStore = create((set, get) => ({
     }
   },
 
+  createDestination: async (data) => {
+  set({ isLoading: true, error: null });
+  try {
+    const res = await destinationService.createDestination(data);
+    set((state) => ({
+      destinations: [...state.destinations, res.destination],
+      isLoading: false,
+    }));
+    return res.destination;
+  } catch (error) {
+    set({ error: error.message, isLoading: false });
+    throw error;
+  }
+},
+
+
   updatePackage: async (id, updates) => {
     set({ isLoading: true, error: null });
     try {

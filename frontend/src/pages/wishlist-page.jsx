@@ -51,8 +51,7 @@ export default function WishlistPage() {
       }
     };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate, setPackages, setDestinations]);
 
   const wishlistPackages = packages.filter((pkg) => wishlist.includes(pkg.id));
 

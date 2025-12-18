@@ -31,6 +31,8 @@ const AgentDashboard = lazy(() => import("@/pages/dashboard/agent-dashboard"));
 const SignIn = lazy(() => import("@/pages/auth/sign-in").then((m) => ({ default: m.SignIn })));
 const SignUp = lazy(() => import("@/pages/auth/sign-up").then((m) => ({ default: m.SignUp })));
 const CreateDestinationPage = lazy(() => import("@/pages/create-destination-page"));
+const EditDestinationPage = lazy(() => import("@/pages/edit-destination-page"));
+const ManageDestinationsPage = lazy(() => import("@/pages/manage-destinations-page"));
 
 function DashboardRouter() {
   const { user } = useAuthStore();
@@ -170,6 +172,17 @@ export default function App() {
             }
           />
           <Route
+  path="/manage-destinations"
+  element={
+    <ProtectedRoute allowedRoles={["agent"]}>
+      <Suspense fallback={<DashboardPageSkeleton />}>
+        <ManageDestinationsPage />
+      </Suspense>
+    </ProtectedRoute>
+  }
+/>
+
+          <Route
             path="/create-package"
             element={
               <ProtectedRoute allowedRoles={["agent"]}>
@@ -189,6 +202,17 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/edit-destination/:id"
+            element={
+              <ProtectedRoute allowedRoles={["agent"]}>
+                <Suspense fallback={<GenericPageSkeleton />}>
+                  <EditDestinationPage />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+
           <Route
             path="/edit-package/:id"
             element={
