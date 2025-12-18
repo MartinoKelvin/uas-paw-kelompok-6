@@ -2,28 +2,28 @@
 
 A modern, full-featured travel package booking platform built with React, TypeScript, and Tailwind CSS.
 
-## 🌟 Features
+## Features
 
-### Core Features (All Implemented ✅)
+### Core Features (All Implemented )
 
 1. **User Authentication** - Register, Login with Tourist and Travel Agent roles
 2. **Package Management** - Agent: Full CRUD packages | Tourist: Browse and view packages
 3. **Destination Catalog** - Browse destinations with photos, descriptions, and packages
 4. **Booking System** - Tourist: Book packages (date, travelers), view all bookings
 5. **Booking Management** - Agent: View and manage bookings (confirm/cancel)
-6. **Reviews System** - Tourist: Write reviews after trip | View package ratings ⭐
+6. **Reviews System** - Tourist: Write reviews after trip | View package ratings 
 
 ### Additional Features
 
-- ✅ Fully responsive design (desktop & mobile optimized)
-- ✅ Real-time form validation with Zod
-- ✅ Loading states and error handling
-- ✅ Protected routes with role-based access
-- ✅ 404 page and error boundary
-- ✅ Success pages with auto-redirect
-- ✅ Dashboard for both Tourist and Agent roles
-- ✅ Search and filter functionality
-- ✅ Toast notifications for user feedback
+- Fully responsive design (desktop & mobile optimized)
+- Real-time form validation with Zod
+- Loading states and error handling
+- Protected routes with role-based access
+- 404 page and error boundary
+- Success pages with auto-redirect
+- Dashboard for both Tourist and Agent roles
+- Search and filter functionality
+- Toast notifications for user feedback
 
 ## 🛠️ Tech Stack
 
@@ -366,7 +366,7 @@ Steps:
 
 ### Backend (Domain .web.id)
 
-**Backend URL:** `https://[kelompok-nama].web.id`
+**Backend URL:** `https://api.faiqerlangga.my.id`
 
 Requirements:
 
@@ -430,13 +430,13 @@ _Note: Screenshots will be added after final deployment_
 
 **Kelompok [Nomor] - Travel Package Booking System (Digit 9)**
 
-| No  | Nama Lengkap          | NIM   | Role                     | Kontribusi Utama                                                                                  |
-| --- | --------------------- | ----- | ------------------------ | ------------------------------------------------------------------------------------------------- |
-| 1   | [Nama Team Leader]    | [NIM] | Team Leader & Full-Stack | Project coordination, frontend-backend integration, deployment, documentation, video presentation |
-| 2   | [Nama Frontend Dev 1] | [NIM] | Frontend Developer       | UI/UX design, React components, state management, responsive design                               |
-| 3   | [Nama Frontend Dev 2] | [NIM] | Frontend Developer       | Pages implementation, forms & validation, routing, error handling                                 |
-| 4   | [Nama Backend Dev 1]  | [NIM] | Backend Developer        | API endpoints, authentication, security, password hashing                                         |
-| 5   | [Nama Backend Dev 2]  | [NIM] | Backend & Database       | Business logic, database design, SQLAlchemy models, Alembic migrations                            |
+| No | Nama Lengkap              | NIM       | Role                 | Kontribusi Utama                                                                                           |
+| -- | ------------------------- | --------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 1  | Martino Kelvin            | 123140165 | Team Leader & FE Dev | Project coordination,Pages implementation, frontend-backend integration, documentation, video presentation |
+| 2  | Muhammad Yusuf            | 122140193 | Frontend Developer   | Pages implementation, forms & validation, routing, error handling                                          |
+| 3  | Reyhan Capri Moraga       | 123140022 | Backend Developer    | API endpoints, booking, payment and qris                                                                   |
+| 4  | Daniel Calvin Simanjuntak | 123140004 | Backend Developer    | API endpoints, destination , and packages.                                                                 |
+| 5  | Faiq Ghozy Erlangga       | 123140139 | Backend Dev & DevOps | API endpoints, authentication, security, password hashing,review, and deployment                          |
 
 ### Pembagian Tugas Detail
 
@@ -482,18 +482,18 @@ This project is for educational purposes as part of IF25-22014 course at Institu
 
 ### Completion Checklist
 
-- ✅ User Authentication (Register/Login with password hashing)
-- ✅ Package Management (Full CRUD by Agent)
-- ✅ Destination Catalog (Browse with photos)
-- ✅ Booking System (Book package with date/travelers)
-- ✅ Booking Management (Confirm/Cancel by Agent)
-- ✅ Review System (After completed trip)
-- ✅ Responsive Design (Mobile & Desktop)
-- ✅ SEO Optimization (Meta tags for all pages)
-- ✅ Production Logger (Development-only console logs)
-- ✅ Error Handling (Toast notifications)
-- ✅ Code Quality (Prettier + ESLint + Husky)
-- ✅ Performance (Lazy loading routes)
+- User Authentication (Register/Login with password hashing)
+- Package Management (Full CRUD by Agent)
+- Destination Catalog (Browse with photos)
+- Booking System (Book package with date/travelers)
+- Booking Management (Confirm/Cancel by Agent)
+- Review System (After completed trip)
+- Responsive Design (Mobile & Desktop)
+- SEO Optimization (Meta tags for all pages)
+- Production Logger (Development-only console logs)
+- Error Handling (Toast notifications)
+- Code Quality (Prettier + ESLint + Husky)
+- Performance (Lazy loading routes)
 
 ### Code Quality Improvements
 
@@ -516,21 +516,18 @@ This project is for educational purposes as part of IF25-22014 course at Institu
 
 ---
 
-**Built with ❤️ by IF25-22014 Team for Institut Teknologi Sumatera**
+**Built with this spec**
 
-- ✅ Form Validation (5+ forms with Zod)
-- ✅ Protected Routes (Role-based access)
-- ✅ State Management (Zustand with persist)
-- ✅ Error Handling (Boundary & 404 page)
-- 🔄 Frontend Deployment (Vercel - Pending)
-- 🔄 Backend Development (Python Pyramid - In Progress)
-- 🔄 Database Setup (PostgreSQL - In Progress)
-- 🔄 Backend Deployment (.web.id - Pending)
-- 🔄 Video Presentation (Pending)
+- Form Validation (5+ forms with Zod)
+- Protected Routes (Role-based access)
+- State Management (Zustand with persist)
+- Error Handling (Boundary & 404 page)
+- Frontend Deployment (Vercel - done)Backend Development (Python Pyramid - done)
+- Database Setup (PostgreSQL - done)
+- Backend Deployment (.web.id - done)
+- Video Presentation (done)
 
 ---
-
-**Deadline:** Jumat, 19 Desember 2025, 23:59:59 WIB
 
 **Course:** IF25-22014 - Pengembangan Aplikasi Web
 
